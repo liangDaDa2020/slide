@@ -1,17 +1,15 @@
 window.onload=function(){
-	var banner1 =new banner({
+	var banner1 =new Banner({
 		el:'#banner1',
 		isAuto:true,
 		speed:1000
 	});
-	console.log(banner1)
-	var banner2 =new banner({
+	var banner2 =new Banner({
 		el:'#banner2'
 	});
-	console.log(banner2)
 	
 }
-function banner(obj){
+function Banner(obj){
 	this.bannerBox=$(obj.el);
 	this.isAuto=obj.isAuto?obj.isAuto:false;
 	this.speed=obj.speed?obj.speed:3000;
@@ -26,7 +24,7 @@ function banner(obj){
 	
 	this.init();
 }
-banner.prototype.init=function(){
+Banner.prototype.init=function(){
 	var This=this;
 	this.leftBtn.click(function(){
 		This.lrBtn(1);
@@ -43,11 +41,11 @@ banner.prototype.init=function(){
 		})
 	}
 }
-banner.prototype.lrBtn=function(num){
+Banner.prototype.lrBtn=function(num){
 	this.index+=num;
 	this.move();
 }
-banner.prototype.move=function(){
+Banner.prototype.move=function(){
 	var This=this;
 	var moveL=this.index*this.step*-1+"px";
 	if(this.index>=this.imgNum-1){
@@ -67,7 +65,7 @@ banner.prototype.move=function(){
 		this.bannerL.animate({marginLeft:moveL});
 	}
 }
-banner.prototype.auto=function(){
+Banner.prototype.auto=function(){
 	if(this.isAuto){
 		var speed=this.speed?this.speed:3000;
 		var This=this;
