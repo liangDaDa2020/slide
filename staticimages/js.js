@@ -1,17 +1,15 @@
 window.onload=function(){
-	var banner1 =new banner({
+	var banner1 =new Banner({
 		el:'#banner1',
 		isAuto:true,
 		speed:1000
 	});
-	console.log(banner1)
 	var banner2 =new banner({
 		el:'#banner2'
 	});
-	console.log(banner2)
 	
 }
-function banner(obj){
+function Banner(obj){
 	this.bannerBox=$(obj.el);
 	this.isAuto=obj.isAuto?obj.isAuto:false;
 	this.speed=obj.speed?obj.speed:3000;
